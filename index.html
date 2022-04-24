@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Riverwood Countdown</title>
+</head>
+<script>
+    function loaded(){
+        loadNewImg()
+    }
+
+    var img = document
+
+    function loadNewImg() {
+        imgNum = Math.floor((Math.random() * 9) + 1);
+        if(imgNum == 2) {
+            loadNewImg()
+        } else {
+            img.getElementById("img-Main").setAttribute("src", "IMG" + imgNum + ".JPG")
+            setTimeout(function() {
+                var height = img.getElementById("img-Main").offsetHeight
+                var width = img.getElementById("img-Main").offsetWidth
+                if(width > height) {
+                    img.getElementById("img-Main").classList.add("long-Img")
+                } else {
+                    img.getElementById("img-Main").classList.add("wide-Img")
+                }
+            }, 100)
+
+            
+        }
+    }
+    screen.lockOrientationUniversal = screen.lockOrientation || screen.mozLockOrientation || screen.msLockOrientation;
+</script>
+
+<script>
+    var countDownDate = new Date("May 12, 2022 22:00:00").getTime();
+
+    var myfunc = setInterval(function() {
+        var now = new Date().getTime();
+        var timeleft = countDownDate - now;
+            
+        var days = Math.floor(timeleft / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((timeleft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((timeleft % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((timeleft % (1000 * 60)) / 1000);
+
+        if(days < 10) {
+            days = "0" + days
+        }
+
+        if(hours < 10) {
+            hours = "0" + hours
+        }
+
+        if(minutes < 10) {
+            minutes = "0" + minutes
+        }
+
+        if(seconds < 10){
+            seconds = "0" + seconds
+        }
+
+        document.getElementById("days").innerHTML = days
+        document.getElementById("hours").innerHTML = hours
+        document.getElementById("mins").innerHTML = minutes
+        document.getElementById("secs").innerHTML = seconds
+    }, 1000)
+</script>
+
+<body onload="loaded()">
+    <div id="main-Img">
+        <img src="" id="img-Main" alt="">
+        <div id="countdown-Holder">
+            <div id="days-Countdown-Container">
+                <div id="days" class="counter">--</div>
+                <div id="days-Text" style="font-size: 20px;">Days</div>
+            </div>
+
+            <div id="hours-Countdown-Container">
+                <div id="hours" class="counter">--</div>
+                <div id="hours-Text" style="font-size: 20px;">Hours</div>
+            </div>
+
+            <div id="mins-Countdown-Container">
+                <div id="mins" class="counter">--</div>
+                <div id="mins-Text" style="font-size: 20px;">Mins</div>
+            </div>
+
+            <div id="secs-Countdown-Container">
+                <div id="secs" class="counter">--</div>
+                <div id="secs-Text" style="font-size: 20px;">Secs</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

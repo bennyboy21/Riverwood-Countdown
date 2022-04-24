@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@700&family=Open+Sans:wght@500&family=Poppins:wght@500&family=Roboto:wght@500&display=swap');
+
+@media (max-width:500px) {
+    body {
+        margin: 0px;
+        padding: 0px;
+        background: rgb(118, 118, 118);
+        width:100vw;
+        overflow: hidden;
+        height: fit-content;
+    }
+    
+    #main-Img {
+        width:100vw;
+        height: 100vh;
+        overflow: hidden;
+    }
+    
+    .long-Img {
+        width:100vw;
+        filter: brightness(35%);
+    }
+    
+    .wide-Img {
+        height:100vh;
+        filter: brightness(35%);
+    }
+
+    #countdown-Holder {
+        position: fixed;
+        top:calc(50%);
+        left:50%;
+        color: white;
+        text-align: center;
+        transform: translate(-50%, -50%);
+        height: 65%;
+        max-height: 700px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    #days-Countdown-Container {
+        font-family: 'Lato', sans-serif;
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+
+    #hours-Countdown-Container {
+        font-family: 'Lato', sans-serif;
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+
+    #mins-Countdown-Container {
+        font-family: 'Lato', sans-serif;
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+
+    #secs-Countdown-Container {
+        font-family: 'Lato', sans-serif;
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+    
+    .counter {
+        font-size: 40px;
+    }
+}
+
+@media (min-width:501) {
+    body {
+        display: none;
+    }
+}
